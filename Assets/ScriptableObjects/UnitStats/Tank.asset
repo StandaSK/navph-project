@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f21ae6f1c87c314c837040b29fdefa4, type: 3}
+  m_Name: Tank
+  m_EditorClassIdentifier: 
+  nameEn: Tank
+  cost: 70
+  loot: 35
+  baseDamage: 7
+  damage: 10
+  rateOfFire: 0.5
+  healthPoints: 100
+  trainingTime: 5
+  descriptionEn: Has a lot of health and deals great one-shot damage, but fires slowly.
