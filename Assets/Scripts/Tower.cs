@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
@@ -37,6 +39,7 @@ public class Tower : MonoBehaviour
     private void TryFire()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, stats.range);
+        List<Unit> enemyUnits = new List<Unit>();
 
         foreach (Collider coll in hitColliders)
         {
@@ -47,8 +50,17 @@ public class Tower : MonoBehaviour
                 continue;
             }
 
-            unit.TakeDamage(stats.damage, alignment);
+            enemyUnits.Add(unit);
         }
+
+        // If there are no enemy units in range, do nothing
+        if (enemyUnits.Count == 0)
+        {
+            return;
+        }
+
+        // Fire at the enemy unit closest to its destination (our base)
+        enemyUnits.OrderBy(o => o.GetRemainingDistance()).ToList()[0].TakeDamage(stats.damage, alignment);
     }
 
     /// <summary>

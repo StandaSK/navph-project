@@ -13,6 +13,8 @@ public class MenuController : MonoBehaviour
     private TowerMenu towerMenu = null;
     [SerializeField]
     private BuildMenu waterBuildMenu = null;
+    [SerializeField]
+    private Player player;
 
     private Tile selectedTile;
 
@@ -85,11 +87,29 @@ public class MenuController : MonoBehaviour
             {
                 if (tile is FieldTile || tile is WaterTile)
                 {
-                    OpenTowerMenu();
+                    // TODO: Check if the tower built there is friendly
+                    var tower = tile.transform.parent.GetComponentInChildren<Tower>();
+
+                    if (tower == null)
+                    {
+                        Debug.Log("Unknown building occupies tile \"" + tile.transform.parent.name + "\". Closing all menus.");
+                        CloseAllMenus();
+                    }
+
+                    // TODO: Find a better way to check if it's the same alignment
+                    if (!tower.alignment.CanHarm(player.alignment))
+                    {
+                        OpenTowerMenu();
+                    }
+                    else
+                    {
+                        CloseAllMenus();
+                    }
                 }
                 else if (tile is RoadTile)
                 {
                     // TODO: Should we have a trap menu?
+                    CloseAllMenus();
                 }
                 else
                 {

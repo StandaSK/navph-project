@@ -25,9 +25,10 @@ public class BaseTile : Tile
         {
             // The base is destroyed
             healthPoints = 0;
+
+            // TODO: make a proper victory screen instead of Debug.Log and quitting the game
             Debug.Log(alignment.name + " has lost the game!\n" + takenFrom.name + " has won the game!");
 
-            // TODO: make a proper victory screen instead of quitting the game
             // Code from http://answers.unity.com/answers/1157271/view.html
 #if UNITY_EDITOR
             // Application.Quit() does not work in the editor so

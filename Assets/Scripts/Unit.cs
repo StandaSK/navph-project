@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Collider)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Rigidbody))]
@@ -10,16 +9,13 @@ public class Unit : MonoBehaviour
     [SerializeField]
     private UnitStats stats;
 
-    private BaseTile destinationBase;
     private int healthPoints;
     private NavMeshAgent navMeshAgent;
-    private Collider unitCollider;
 
     private void Awake()
     {
         healthPoints = stats.healthPoints;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        unitCollider = GetComponent<Collider>();
 
         if (alignment == null)
         {
@@ -31,7 +27,6 @@ public class Unit : MonoBehaviour
 
         if (enemyBase != null)
         {
-            destinationBase = enemyBase;
             navMeshAgent.destination = enemyBase.transform.position;
         }
         else
@@ -51,23 +46,9 @@ public class Unit : MonoBehaviour
         return stats.cost;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public float GetRemainingDistance()
     {
-        //Debug.Log("OnCollisionEnter");
-        ContactPoint contact = collision.contacts[0];
-
-        var otherUnit = contact.otherCollider.gameObject.GetComponentInChildren<Unit>();
-
-        // Ignore collisions with anything but enemy units
-        if (otherUnit == null || !otherUnit.alignment.CanHarm(alignment))
-        {
-            return;
-        }
-
-        Debug.Log("OnCollisionEnter");
-        navMeshAgent.isStopped = true;
-        StartCoroutine(UnStopAgent(1f));
-        contact.otherCollider.gameObject.SetActive(false);
+        return navMeshAgent.remainingDistance;
     }
 
     public void TakeDamage(int damage, Alignment takenFrom)
@@ -94,16 +75,4 @@ public class Unit : MonoBehaviour
             healthPoints -= damage;
         }
     }
-
-    /// <summary>
-    /// Unstops the agent after <paramref name="time"/> has passed.
-    /// </summary>
-    /// <param name="time">Time after which the agent will be unstopped.</param>
-    /// <returns></returns>
-    private IEnumerator UnStopAgent(float time)
-    {
-        yield return new WaitForSeconds(time);
-        navMeshAgent.isStopped = false;
-    }
-
 }

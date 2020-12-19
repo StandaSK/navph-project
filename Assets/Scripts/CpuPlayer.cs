@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Player))]
@@ -17,6 +18,7 @@ public class CpuPlayer : MonoBehaviour
     [SerializeField]
     private float timeBetweenDecisions = 1f;
 
+    private bool nextActionDecided = false;
     private BaseTile baseTile;
     private Player cpuPlayer;
 
@@ -29,6 +31,49 @@ public class CpuPlayer : MonoBehaviour
 
     private void DecideAction()
     {
-        // TODO: Make some actions as the CPU player
+        if (nextActionDecided)
+        {
+            return;
+        }
+
+        nextActionDecided = true;
+        StartCoroutine(SpawnUnit());
+
+        // TODO: Make some other actions as the CPU player
+    }
+
+    private IEnumerator SpawnUnit()
+    {
+        bool unitSpawned = false;
+        var selectedUnit = units[Random.Range(0, units.Count)];
+
+        while (!unitSpawned)
+        {
+            if (cpuPlayer.CanAfford(selectedUnit.GetPrice()))
+            {
+                if (cpuPlayer.TryToBuy(selectedUnit.GetPrice()))
+                {
+                    /* Make sure the new unit spawns with an alignment */
+                    selectedUnit.alignment = cpuPlayer.alignment;
+
+                    /* Spawn the new unit */
+                    Instantiate(selectedUnit.gameObject, baseTile.transform.position, Quaternion.identity);
+
+                    /* Reset the alignment in the prefab */
+                    selectedUnit.alignment = null;
+                }
+                else
+                {
+                    Debug.LogError("Invalid game state: The CPU player can afford the unit, but can't buy it!");
+                }
+
+                unitSpawned = true;
+                nextActionDecided = false;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
 }

@@ -5045,6 +5045,7 @@ MonoBehaviour:
   roadBuildMenu: {fileID: 27399431}
   towerMenu: {fileID: 76240853}
   waterBuildMenu: {fileID: 430532227}
+  player: {fileID: 453135920}
 --- !u!4 &952899649
 Transform:
   m_ObjectHideFlags: 0
