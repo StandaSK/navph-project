@@ -37,9 +37,9 @@ public class TowerStats : ScriptableObject
     public float range;
 
     /// <summary>
-    /// How many shots per second can the tower fire.
+    /// How many seconds between shots.
     /// </summary>
-    [Tooltip("How many shots per second can the tower fire.")]
+    [Tooltip("How many seconds between shots.")]
     public float rateOfFire;
 
     /// <summary>

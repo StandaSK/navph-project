@@ -17,5 +17,5 @@ MonoBehaviour:
   sellPrice: 50
   damage: 10
   range: 5
-  rateOfFire: 0.3
+  rateOfFire: 0.33
   descriptionEn: A heavy ship with long range, but fires slowly.
