@@ -87,7 +87,6 @@ public class MenuController : MonoBehaviour
             {
                 if (tile is FieldTile || tile is WaterTile)
                 {
-                    // TODO: Check if the tower built there is friendly
                     var tower = tile.transform.parent.GetComponentInChildren<Tower>();
 
                     if (tower == null)

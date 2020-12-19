@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        // This is called to ensure a correct value in the UI when switching scenes from the main menu
+        /* This is called to ensure a correct value in the UI when switching scenes from the main menu */
         currencyChanged.Invoke();
     }
 
