@@ -90,7 +90,7 @@ public class TowerMenu : MonoBehaviour
 
     public void UpgradeTower()
     {
-        // TODO: After implementing the tower upgrade system, check if the player can afford the upgrade price
+        // TODO: Check if the player can afford the tower upgrade
         selectedTower.Upgrade();
         upgradeButton.interactable = false;
     }

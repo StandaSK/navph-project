@@ -73,6 +73,7 @@ public class Unit : MonoBehaviour
         else
         {
             healthPoints -= damage;
+            Debug.Log("Remaining health of " + name + ": " + healthPoints);
         }
     }
 }
