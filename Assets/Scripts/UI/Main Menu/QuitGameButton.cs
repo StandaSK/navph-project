@@ -20,4 +20,12 @@ public class QuitGameButton : MonoBehaviour
          Application.Quit();
 #endif
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+    }
 }
