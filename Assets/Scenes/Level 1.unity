@@ -6951,7 +6951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnToMainMenuButton: {fileID: 81910021}
-  mainMenuScene: {fileID: 102900000, guid: 893c79d5c77a6dd458d9da24f6372e22, type: 3}
+  mainMenuSceneName: Main Menu
   victoryScreen: {fileID: 1211485693}
   victoryText: {fileID: 401500577}
   bases:

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelChangeButton : MonoBehaviour
 {
     [SerializeField]
-    private Object levelScene;
+    private string levelSceneName;
 
     private void Awake()
     {
@@ -15,6 +15,6 @@ public class LevelChangeButton : MonoBehaviour
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene(levelScene.name);
+        SceneManager.LoadScene(levelSceneName);
     }
 }

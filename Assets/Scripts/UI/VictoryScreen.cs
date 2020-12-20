@@ -8,7 +8,7 @@ public class VictoryScreen : MonoBehaviour
     [SerializeField]
     private Button returnToMainMenuButton;
     [SerializeField]
-    private Object mainMenuScene;
+    private string mainMenuSceneName;
     [SerializeField]
     private RectTransform victoryScreen;
     [SerializeField]
@@ -27,7 +27,7 @@ public class VictoryScreen : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(mainMenuScene.name);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void ShowVictoryScreen()
