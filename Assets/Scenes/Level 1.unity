@@ -1958,8 +1958,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 301871291}
   m_HandleRect: {fileID: 301871290}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6061,10 +6061,10 @@ RectTransform:
   m_Father: {fileID: 1402635492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1239871028
 PrefabInstance:
@@ -6933,10 +6933,10 @@ RectTransform:
   m_Father: {fileID: 395006217}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402635493
 MonoBehaviour:
@@ -6951,6 +6951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnToMainMenuButton: {fileID: 81910021}
+  mainMenuScene: {fileID: 102900000, guid: 893c79d5c77a6dd458d9da24f6372e22, type: 3}
   victoryScreen: {fileID: 1211485693}
   victoryText: {fileID: 401500577}
   bases:
@@ -8166,8 +8167,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 923455110}
   m_HandleRect: {fileID: 923455109}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10006,8 +10007,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1155866281}
   m_HandleRect: {fileID: 1155866280}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
