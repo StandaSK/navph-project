@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Occurs when currency changed.
     /// </summary>
+    [HideInInspector]
     public UnityEvent currencyChanged;
 
     private int currency;
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
         // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-         Application.Quit();
+        Application.Quit();
 #endif
     }
 

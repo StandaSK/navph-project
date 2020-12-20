@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// The player's base is located here. Nothing can be built on this tile.
@@ -10,6 +11,8 @@ public class BaseTile : Tile
     [SerializeField]
     private int startingHealth = 10;
 
+    public UnityEvent baseDied;
+
     private int healthPoints;
 
     protected override void Awake()
@@ -19,24 +22,18 @@ public class BaseTile : Tile
         healthPoints = startingHealth;
     }
 
-    public void TakeDamage(int damage, Alignment takenFrom)
+    public bool IsDead()
+    {
+        return healthPoints <= 0;
+    }
+
+    public void TakeDamage(int damage)
     {
         if (damage >= healthPoints)
         {
             // The base is destroyed
             healthPoints = 0;
-
-            // TODO: make a proper victory screen instead of Debug.Log and quitting the game
-            Debug.Log(alignment.name + " has lost the game!\n" + takenFrom.name + " has won the game!");
-
-            // Code from http://answers.unity.com/answers/1157271/view.html
-#if UNITY_EDITOR
-            // Application.Quit() does not work in the editor so
-            // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
+            baseDied.Invoke();
         }
         else
         {

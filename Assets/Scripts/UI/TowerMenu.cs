@@ -36,9 +36,9 @@ public class TowerMenu : MonoBehaviour
     {
         if (towerMenuOpen)
         {
-            var mypos = transform.position;
+            var mypos = transform.localPosition;
             mypos.y -= 50;
-            transform.position = mypos;
+            transform.localPosition = mypos;
 
             towerMenuOpen = false;
         }
@@ -60,9 +60,9 @@ public class TowerMenu : MonoBehaviour
 
         if (!towerMenuOpen)
         {
-            var mypos = transform.position;
+            var mypos = transform.localPosition;
             mypos.y += 50;
-            transform.position = mypos;
+            transform.localPosition = mypos;
 
             towerMenuOpen = true;
         }

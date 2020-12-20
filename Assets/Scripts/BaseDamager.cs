@@ -18,7 +18,7 @@ public class BaseDamager : MonoBehaviour
             return;
         }
 
-        baseTile.TakeDamage(otherUnit.GetBaseDamage(), otherUnit.alignment);
+        baseTile.TakeDamage(otherUnit.GetBaseDamage());
         Destroy(contact.otherCollider.gameObject);
     }
 }

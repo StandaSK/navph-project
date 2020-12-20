@@ -38,8 +38,9 @@ public class Tower : MonoBehaviour
 
     private void TryFire()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, stats.range);
+        /* Find all enemy units in range of the tower */
         List<Unit> enemyUnits = new List<Unit>();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, stats.range);
 
         foreach (Collider coll in hitColliders)
         {
@@ -53,13 +54,13 @@ public class Tower : MonoBehaviour
             enemyUnits.Add(unit);
         }
 
-        // If there are no enemy units in range, do nothing
+        /* If there are no enemy units in range, do nothing */
         if (enemyUnits.Count == 0)
         {
             return;
         }
 
-        // Fire at the enemy unit closest to its destination (our base)
+        /* Fire at the enemy unit closest to its destination (our base) */
         enemyUnits.OrderBy(o => o.GetRemainingDistance()).ToList()[0].TakeDamage(stats.damage, alignment);
     }
 

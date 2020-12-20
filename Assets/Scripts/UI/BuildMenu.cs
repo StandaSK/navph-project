@@ -13,9 +13,9 @@ public class BuildMenu : MonoBehaviour
     {
         if (buildMenuOpen)
         {
-            var mypos = transform.position;
+            var mypos = transform.localPosition;
             mypos.x += 100;
-            transform.position = mypos;
+            transform.localPosition = mypos;
 
             buildMenuOpen = false;
         }
@@ -27,9 +27,9 @@ public class BuildMenu : MonoBehaviour
 
         if (!buildMenuOpen)
         {
-            var mypos = transform.position;
+            var mypos = transform.localPosition;
             mypos.x -= 100;
-            transform.position = mypos;
+            transform.localPosition = mypos;
 
             buildMenuOpen = true;
         }
