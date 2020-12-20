@@ -2766,7 +2766,7 @@ MonoBehaviour:
   startingCurrency: 50
   periodicCurrencyBonus: 5
   currencyBonusInitialTimeout: 2
-  currencyBonusPeriod: 2
+  currencyBonusPeriod: 0.5
   currencyChanged:
     m_PersistentCalls:
       m_Calls: []
